@@ -18,7 +18,10 @@ module.exports = function(req, res) {
   }
 
   if (!foodTerm || !cityTerm) {
-    return;
+    res.json([{
+      title: '<i>[Search] in [Location]</i>',
+      text: ''
+    }]);
   }
 
   var response;
