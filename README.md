@@ -6,10 +6,10 @@ how to use this example code in Mixmax.
 
 ## What it should look like:
 ###Typeahead<br>
-![typeahead](https://raw.githubusercontent.com/simonxca/mixmax-yelp-slash-command/master/screenshots/typeahead.gif)
+![typeahead](https://raw.githubusercontent.com/Mechdriver/mixmax-yelp-slash-command/master/screenshots/typeahead.gif)
 
 ###Resolver<br>
-![resolver](https://raw.githubusercontent.com/simonxca/mixmax-yelp-slash-command/master/screenshots/resolver.png)
+![resolver](https://raw.githubusercontent.com/Mechdriver/mixmax-yelp-slash-command/master/screenshots/resolver.png)
 
 ## Running locally
 
