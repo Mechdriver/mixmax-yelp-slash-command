@@ -22,6 +22,7 @@ module.exports = function(req, res) {
       title: '<i>[Search] in [Location]</i>',
       text: ''
     }]);
+    return;
   }
 
   var response;
