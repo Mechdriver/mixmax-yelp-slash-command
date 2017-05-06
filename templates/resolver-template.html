@@ -7,11 +7,11 @@
   border-radius: 2px;
   padding: 0.45rem;
 ">
-  <a href="<% return data.permalink_url %>" target="_blank">
+  <a href="<% return data.url %>" target="_blank">
     <img style="
       height: 100px;
       border-radius: 2px;
-    " src="<% return data.artwork_url %>">
+    " src="<% return data.image_url %>">
   </a>
   <div style="
     font-family: Proxima Nova, Helvetica Neue, sans-serif;
@@ -24,11 +24,11 @@
       text-overflow: ellipsis;
       width: 445px;
     ">
-      <a href="<% return data.permalink_url %>" target="_blank" style="
+      <a href="<% return data.url %>" target="_blank" style="
         text-decoration: none;
         color: rgb(33, 33, 33);
       ">
-        <% return data.title %>
+        <% return data.name %>
       </a>
     </div>
     <div style="
@@ -38,34 +38,93 @@
       text-overflow: ellipsis;
       width: 445px;
     ">
-      <a href="<%
-        if (data.user) return data.user.permalink_url;
-        return '';
-      %>" target="_blank" style="
+      <div target="_blank" style="
         text-decoration: none;
         color: rgb(111, 111, 111);
       ">
         <%
-          if (data.user) return data.user.username;
-          return 'Username';
+          if (data.location.display_address[0]) return data.location.display_address[0];
+          return 'Address';
         %>
-      </a>
+        <br>
+        <%
+          if (data.location.display_address[1]) return data.location.display_address[1];
+          return '';
+        %>
+      </div>
     </div>
     <br>
-    <div>
-      <span style="
-        font-size: 0.9rem;
-      ">Description</span>
-      <br>
-      <div style="
-        font-size: 0.8rem;
-        color: rgb(88, 88, 88);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 445px;
-      ">
-        <% return data.description || 'No description available.' %>
+    <div style="
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+    ">
+      <div>
+        <span style="
+          font-size: 0.9rem;
+        ">
+          <% if (data.is_closed) return 'Closed';
+            return 'Open' %>
+        </span>
+        <br>
+        <div style="
+          font-size: 0.8rem;
+          color: rgb(88, 88, 88);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 50px;
+        ">
+          Now
+        </div>
+      </div>
+      <div>
+        <span style="
+          font-size: 0.9rem;
+        "><% if (data.rating) return 'Rating'; return ''; %></span>
+        <br>
+        <div style="
+          font-size: 0.8rem;
+          color: rgb(88, 88, 88);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 75px;
+        ">
+          <% if (data.rating) return data.rating + ' / 5 Stars'; return ''; %>
+        </div>
+      </div>
+      <div>
+        <span style="
+          font-size: 0.9rem;
+        "><% if (data.price) return 'Price'; return ''; %></span>
+        <br>
+        <div style="
+          font-size: 0.8rem;
+          color: rgb(88, 88, 88);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 50px;
+        ">
+          <% if (data.price) return data.price; return ''; %>
+        </div>
+      </div>
+      <div>
+        <span style="
+          font-size: 0.9rem;
+        "><% if (data.phone) return 'Phone Number'; return ''; %></span>
+        <br>
+        <div style="
+          font-size: 0.8rem;
+          color: rgb(88, 88, 88);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 50;
+        ">
+          <% if (data.phone) return '(' + data.phone.slice(data.phone.length - 10, data.phone.length - 7) + ') ' + data.phone.slice(data.phone.length - 7, data.phone.length - 4) + '-' + data.phone.slice(data.phone.length - 4, data.phone.length); return ''; %>
+        </div>
       </div>
     </div>
   </div>
